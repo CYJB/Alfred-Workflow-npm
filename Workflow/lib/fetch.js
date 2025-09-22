@@ -4,7 +4,7 @@
  * @returns {Promise<Response>} 请求的响应。
  */
 function fetch(input) {
-  return app.doShellScript(`curl $'${input.replace(/'/g, "\\'")}' -g`);
+  return app.doShellScript(`curl $'${input.replace(/ /g, '%20').replace(/'/g, "\\'")}' -g`);
 }
 
 module.exports = { fetch };
